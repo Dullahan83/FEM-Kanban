@@ -1,0 +1,26 @@
+#root {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.full1px{
+  height: calc(100% + 1px);
+  margin-top: -1px;
+}
+
+.scroll-container{
+  overflow: scroll;
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+*,::after,::before{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  height: 100vh;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* input checkbox */
+input[type="checkbox"] {
+  appearance: none;
+  width: 16px;
+  aspect-ratio: 1;
+  min-width: 16px;
+  border: 1px solid rgba(129, 142, 162, 0.248);
+  border-radius: 2px;
+  position: relative;
+  transition: 0.2s;
+  transition-delay: 0.15s;
+  outline: none;
+  cursor: pointer;
+}
+label:hover{
+  cursor: pointer;
+}
+input[type="checkbox"]::before,
+input[type="checkbox"]::after {
+  position: absolute;
+  content: "";
+  display: flex;
+  align-items: center;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  justify-content: center;
+  transition: transform 0.2s;
+  top: 50%;
+  left: 50%;
+  border-radius: 2px;
+
+  transform: translate(-50%, -50%) scale(0);
+}
+
+input[type="checkbox"]::before {
+  background-color: #635FC7;
+}
+
+input[type="checkbox"]::after {
+  background: url("./assets/icon-check.svg") no-repeat center;
+}
+
+input[type="checkbox"]:checked::before,
+input[type="checkbox"]:checked::after {
+  transform: translate(-50%, -50%) scale(1);
+}
