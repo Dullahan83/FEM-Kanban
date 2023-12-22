@@ -19,7 +19,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: https://www.frontendmentor.io/solutions/kanban-challenge-with-react-tailwind-zustand-and-reactbeautifuldnd-xYBnbHCmrc
 - Live Site URL: https://dullahan83.github.io/FEM-Kanban
 
 ## My process
