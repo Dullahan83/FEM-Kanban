@@ -23,7 +23,7 @@ const CheckboxModalItem = ({subData, index}: CheckboxModalItemProps) => {
   return (
     <div className='flex p-3.5 items-center leading-tight group hover:cursor-pointer rounded bg-bgLight dark:bg-bgDark text-black dark:text-white text-sm hover:bg-primary/25 dark:hover:bg-primary/25'>
         <input className='mr-4 bg-white dark:bg-darkGrey'  checked={checked} onChange={handleChange} type="checkbox" name={inputName} id={inputName} />
-        <label htmlFor={inputName} className={cn({"text-black/50 dark:text-white/50 line-through": subData.isCompleted})}>{subData.title}</label>
+        <label htmlFor={inputName} className={cn("w-full",{"text-black/50 dark:text-white/50 line-through": subData.isCompleted})}>{subData.title}</label>
     </div>
   )
 }

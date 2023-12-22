@@ -73,6 +73,7 @@ const EditBoardModal = forwardRef<HTMLDialogElement, EditBoardModalProps>(
     
     return (
       <dialog
+      id="EditBoardModal"
       onClick={handleClick}
         ref={ref}
         className={
@@ -89,7 +90,7 @@ const EditBoardModal = forwardRef<HTMLDialogElement, EditBoardModalProps>(
               setFormFields={setFormFields}
               errorOrigin={errorOrigin}
               hasError={hasError}
-              id="nameInput"
+              id="EditNameInput"
               label="Name"
               name="nameInput"
               type="text"

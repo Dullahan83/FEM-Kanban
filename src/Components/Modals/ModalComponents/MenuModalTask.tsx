@@ -1,6 +1,5 @@
 import React from 'react'
 import Button from '../../Shared/Button'
-import useStore from '../../../Hooks/useStore'
 
 
 type MenuModalTaskProps = {
@@ -12,7 +11,6 @@ type MenuModalTaskProps = {
 
 
 const MenuModalTask = ({setOpenMenu, handleOpen, openConfirmation, handleClose}: MenuModalTaskProps) => {
-    const {deleteTask} = useStore()
 
   
   const handleDeleteBoard = () => {

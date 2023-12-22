@@ -38,14 +38,14 @@ const SideBar = ({ open, setOpen }: IProps) => {
   return (
     <div
       className={cn(
-        `h-screen w-screen origin-top md:h-full  transition-[transform,margin]  duration-300 fixed md:relative z-10 after:z-50  pt-4 pb-8 float-left flex flex-col md:w-[260px] lg:w-[300px] md:border-r md:border-r-linelight md:dark:border-r-lineDark bg-black/50 md:bg-white  md:dark:bg-darkGrey  `,
+        ` w-screen  transition-[margin] h-full  duration-300 absolute md:relative z-10 after:z-50  pt-4 pb-8 float-left flex flex-col md:w-[260px] lg:w-[300px] md:border-r md:border-r-linelight md:dark:border-r-lineDark bg-black/50 md:bg-white  md:dark:bg-darkGrey  `,
         {
           "hidden  md:flex  md:-ml-[260px] lg:-ml-[300px]": !open,
         }
       )}
         onClick={handleClick}
     >
-      <div ref={sidebarBody} className=" w-66 self-center md:h-full py-4 md:py-0 rounded-lg md:self-auto md:w-full md:rounded-none bg-white dark:bg-darkGrey md:bg-transparent flex flex-col md:justify-between">
+      <div ref={sidebarBody} className=" w-66 self-center md:h-full  py-4 md:py-0 rounded-lg md:self-auto md:w-full md:rounded-none bg-white dark:bg-darkGrey md:bg-transparent flex flex-col md:justify-between">
         <div className="  md:w-full flex flex-col gap-x-5 bg-white dark:bg-darkGrey">
           <h2 className="uppercase ml-6 md:ml-8 mb-5 font-bold text-sm leading-tight text-mediumGrey tracking-ginormous">{`all boards (${data?.length})`}</h2>
           <ul className="pr-6 text-mediumGrey">

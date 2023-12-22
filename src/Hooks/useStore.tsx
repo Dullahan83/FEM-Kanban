@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { getDatas } from "../Utils/func";
 import { immer } from "zustand/middleware/immer";
-import { ITab, ITasks } from "../Utils/Types";
+import {  ITab, ITasks } from "../Utils/Types";
 
 interface StoreState {
   data: ITab[];
@@ -21,16 +21,18 @@ type Actions = {
   createTask: (task: ITasks) => void;
   updateTask: (task: ITasks) => void;
   deleteTask: () => void;
-  moveTask: (currColId: string, currTaskIndex: number, destColId: string, destTaskIndex: number, draggedTaskId: string) => void
+  moveTask: (currColId: string, currTaskIndex: number, destColId: string, destTaskIndex: number) => void
 };
 
-const datas: ITab[] = await getDatas()
-
+// const datas: ITab[] = getDatas() as ITab[]
+const initialData: ITab[] = []
+const initialBoard: ITab  = {id: "", name: "", columns: []}
+const initialTask: ITasks = {id: "", title: "", description:"", status: "", subtasks: []}
 const useStore = create<StoreState & Actions>()(persist(
   immer((set) => ({
-    data: datas,
-    currentBoard: datas && datas[0],
-    currentTask: datas[0].columns[0].tasks[0],
+    data: initialData,
+    currentBoard: initialBoard,
+    currentTask: initialTask,
     selectActiveBoard: (boardIndex) =>
       set((state) => ({ currentBoard: state.data[boardIndex] })),
     createNewBoard: (board) =>
@@ -224,7 +226,7 @@ const useStore = create<StoreState & Actions>()(persist(
         state.data[indexBoard].columns[indexCol].tasks[indexTask] = task
         state.currentTask = task
       }),
-      moveTask: (currColId, currTaskIndex, destColId, destTaskIndex, draggedTaskId) => set((state) => {
+      moveTask: (currColId, currTaskIndex, destColId, destTaskIndex) => set((state) => {
         const indexBoard = state.data.findIndex(board => board.id === state.currentBoard.id)
         if (indexBoard === -1) {
           console.error("Board not found");
@@ -256,5 +258,20 @@ const useStore = create<StoreState & Actions>()(persist(
     })
   })
 );
+
+
+const initializeData = async () => {
+  const storedDataJson = sessionStorage.getItem('kanbanStore');
+  let storedData
+  if(storedDataJson){
+    storedData = JSON.parse(storedDataJson)
+  }
+  if (!storedData.state.data.length) {
+    const datas = await getDatas() as ITab[];
+    useStore.setState({ data: datas, currentBoard: datas[0], currentTask: datas[0].columns[0].tasks[0] });
+  }
+}
+
+initializeData()
 
 export default useStore;

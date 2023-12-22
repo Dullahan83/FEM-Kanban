@@ -15,7 +15,7 @@ const Task = ({ taskData, index, ...props }: ITaskProps) => {
     <Draggable draggableId={taskData.id} index={index}>
       {(provided) =>
       <div
-        className="w-full group py-6 px-4 bg-white dark:bg-darkGrey rounded-lg shadow-taskShadow active:animate-pulse"
+        className="w-full group py-5.8 px-4 bg-white dark:bg-darkGrey leading-tight rounded-lg shadow-taskShadow active:animate-pulse"
         {...props}
         ref={provided.innerRef}
         {...provided.draggableProps}

@@ -6,12 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist -r https://github.com/Dullahan83/FEM-Kanban.git",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "@types/uuid": "^9.0.7",
     "clsx": "^2.0.0",
+    "gh-pages": "^6.1.0",
     "immer": "^10.0.3",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",

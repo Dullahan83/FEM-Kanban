@@ -66,9 +66,13 @@ export default {
         "darkText": "#fff",
         "newCol": "#e9effa",
       },
+      margin:{
+        "10.5": "42px"
+      },
       padding:{
         "3.5": "14px",
         "4.5": "18px",
+        "5.8": "23px",
         "6.5": "26px",
         "8.5": "34px",
         "82": "82px",

@@ -10,7 +10,7 @@ export const cn = (...inputs: ClassValue[]) => {
 
 export const getDatas = async () => {
   try {
-    const response = await fetch("/data.json");
+    const response = await fetch("https://dullahan83.github.io/FEM-Kanban/data.json");
     const datas: {boards: ITab[]} = await response.json();
     if (!response.ok) {
       throw new Error("Failed to fetch datas");

@@ -36,7 +36,7 @@ const Modalnput = ({
 
   return (
     <div className={`${classN} h-fit leading-tight`}>
-      <label className="mb-2 text-sm" htmlFor={props.name}>
+      <label className="mb-2 text-sm" htmlFor={props.id}>
         {label}
       </label>
       {!multiline ?<div className="relative w-full">
@@ -57,7 +57,7 @@ const Modalnput = ({
         ref={textAreaRef}
         {...props}
         className={cn(
-          "w-full px-4 whitespace-pre resize-none h-28 py-2 border border-mediumGrey/25 bg-inherit rounded-smd outline-none leading-5.5 text-black text-mds placeholder:text-black/25 dark:placeholder:text-white/25",
+          "w-full px-4 whitespace-pre resize-none h-28 py-2 border border-mediumGrey/25 bg-inherit rounded-smd outline-none leading-5.5 text-black dark:text-white text-mds placeholder:text-black/25 dark:placeholder:text-white/25",
           { "border-secondary": hasError && errorOrigin === props.name }
         )}
       ></textarea>}

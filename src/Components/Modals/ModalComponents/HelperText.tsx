@@ -1,4 +1,3 @@
-import React from 'react'
 
 const HelperText = ({content = "Can't be empty"} : {content?: string}) => {
   return (

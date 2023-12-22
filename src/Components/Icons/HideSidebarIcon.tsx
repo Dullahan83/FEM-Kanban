@@ -1,11 +1,11 @@
-import React, {ComponentPropsWithoutRef} from "react";
+import {ComponentPropsWithoutRef} from "react";
 
 type IconProps = {
     size?: string;
     color?: string;
   } & ComponentPropsWithoutRef<"svg">;
 
-const HideSidebarIcon = ({ size = "16px", ...props }: IconProps) => {
+const HideSidebarIcon = ({  ...props }: IconProps) => {
   return (
     <svg width="18" height="16" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path

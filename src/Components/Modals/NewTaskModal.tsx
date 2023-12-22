@@ -99,9 +99,8 @@ const NewTaskModal = forwardRef<HTMLDialogElement, NewTaskModalProps>(
               setFormFields={setFormFields}
               errorOrigin={errorOrigin}
               hasError={hasError}
-              id="nameInput"
+              id="taskNameInput"
               label="Name"
-              name="nameInput"
               type="text"
               placeholder="e.g. Take coffee break"
               defaultValue={""}
@@ -112,7 +111,7 @@ const NewTaskModal = forwardRef<HTMLDialogElement, NewTaskModalProps>(
                 value={description}
                 onChange={handleChange}
                 name="description"
-                className="px-4 whitespace-pre -mt-4 resize-none h-28 py-2 border border-mediumGrey/25 bg-inherit rounded-smd outline-none leading-5.5 text-black text-mds placeholder:text-black/25 dark:placeholder:text-white/25"
+                className="px-4 whitespace-pre -mt-4 resize-none h-28 py-2 border border-mediumGrey/25 bg-inherit rounded-smd outline-none leading-5.5 text-black dark:text-white text-mds placeholder:text-black/25 dark:placeholder:text-white/25"
               />
             </>
             {columns?.length ? (
@@ -137,7 +136,7 @@ const NewTaskModal = forwardRef<HTMLDialogElement, NewTaskModalProps>(
             >
               + add new subtask
             </ModalButton>
-            <Dropdown title="Status" setState={setStatus} />
+            <Dropdown title="Status" setState={setStatus} newTask/>
             <ModalButton onClick={onSubmit} type="button" variant="Validate">
               create task
             </ModalButton>

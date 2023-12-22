@@ -31,8 +31,8 @@ const Column = ({
   }, [currentBoard.name, currentTask.id]);
 
   return (
-    <div className=" w-70 h-full min-h-full pb-10" {...props}>
-      <h3 className="uppercase tracking-ginormous flex items-center mb-6">
+    <div className=" w-70 h-full min-h-full" {...props}>
+      <h3 className="uppercase tracking-ginormous text-sm flex items-center mb-6">
         <div
           className="w-4 aspect-square rounded-full mr-3 "
           style={{ backgroundColor: pelletColor }}

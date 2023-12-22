@@ -62,7 +62,7 @@ const TaskModal = forwardRef<HTMLDialogElement, TaskModalProps>(
         <div ref={modalBody} className="w-85.5 md:w-480 p-6 pb-8 md:p-8 bg-white dark:bg-darkGrey max-w-[480px] rounded-md flex flex-col gap-y-6">
             <div className="flex items-center relative w-full leading-[1.28] justify-between gap-x-4">
                 <ModalTitle className="">{taskData.title}</ModalTitle>
-                <MenuIcon className="h-fit" onClick={() => setOpenMenu(prev => !prev)}/>
+                <MenuIcon role="button" aria-label="menu button" tabIndex={0}  className="h-fit" onClick={() => setOpenMenu(prev => !prev)}/>
                {openMenu && <MenuModalTask openConfirmation={openConfirmation} setOpenMenu={setOpenMenu} handleOpen={handleOpen} handleClose={handleClose}/>}
             </div>
             {taskData.description && <ModalDescription>{taskData.description}</ModalDescription>}

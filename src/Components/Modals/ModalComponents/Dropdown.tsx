@@ -6,14 +6,15 @@ import ChevronIcon from "../../Icons/ChevronIcon";
 type DropdownProps = {
   title: string;
   setState?: React.Dispatch<React.SetStateAction<string>>
+  newTask?: boolean
 };
 
-const Dropdown = ({  title, setState }: DropdownProps) => {
+const Dropdown = ({  title, setState, newTask= false }: DropdownProps) => {
     const {changeStatusByClick} = useStore()
     const selectItems = useStore(store => store.currentBoard?.columns?.map(col => col.name))
-    const currentStatus = useStore((store) => store.currentTask.status) ||selectItems[0]
+    const currentStatus = useStore((store) => store.currentTask.status)
     const [isOpen, setIsOpen] = React.useState(false);
-    const [status, setStatus] = React.useState(currentStatus)
+    const [status, setStatus] = React.useState(!newTask ? currentStatus: selectItems[0])
 
   const handleOpen = () => {
     setIsOpen((prev) => !prev);

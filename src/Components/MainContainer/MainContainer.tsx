@@ -50,10 +50,10 @@ const MainContainer = ({handleOpenConfirm}: {handleOpenConfirm: () => void}) => 
 
 
   const onDragEnd = (result: DropResult) => {
-    const {destination, source, draggableId} = result
+    const {destination, source} = result
     if(!destination) return
     if(destination.droppableId === source.droppableId && destination.index === source.index) return
-    moveTask(source.droppableId, source.index, destination.droppableId, destination.index, draggableId)
+    moveTask(source.droppableId, source.index, destination.droppableId, destination.index)
   }
   
 
@@ -61,7 +61,7 @@ const MainContainer = ({handleOpenConfirm}: {handleOpenConfirm: () => void}) => 
   return (
     <div
       className={cn(
-        "flex-1 w-full relative overflow-scroll no-scrollbar bg-bgLight  dark:bg-bgDark flex  pl-6 pr-56 pt-6 pb-16 ",
+        "flex-1 w-full relative overflow-scroll no-scrollbar bg-bgLight  dark:bg-bgDark flex  pl-6 pr-56 pt-6  ",
         {
           "h-full items-center justify-center px-6":
             currentBoard?.columns.length === 0,
@@ -70,8 +70,8 @@ const MainContainer = ({handleOpenConfirm}: {handleOpenConfirm: () => void}) => 
       )}
     >
       {currentBoard?.columns?.length ? (
-      <DragDropContext key={currentBoard.columns.length} onDragEnd={onDragEnd}>
-        <div className="flex gap-x-6 h-full min-h-full">
+      <DragDropContext key={"dragContext"} onDragEnd={onDragEnd}>
+        <div className="flex gap-x-6 h-fit">
           {currentBoard?.columns.map((col, index) => {
             return (
               <Column
@@ -87,7 +87,7 @@ const MainContainer = ({handleOpenConfirm}: {handleOpenConfirm: () => void}) => 
           })}
           <Button
             style={{ height: maxColHeigth }}
-            className=" w-70 bg-gradient-to-b from-newCol to-[#eaf0fa80] dark:from-darkGrey/25 dark:to-darkGrey/10 capitalize text-mediumGrey hover:text-primary text-xl rounded-lg mt-12 "
+            className=" w-70 bg-gradient-to-b from-newCol to-[#eaf0fa80] dark:from-darkGrey/25 dark:to-darkGrey/10 capitalize text-mediumGrey hover:text-primary text-xl rounded-lg mt-10.5 "
             onClick={handleOpen}
           >
             + new column
@@ -109,7 +109,7 @@ const MainContainer = ({handleOpenConfirm}: {handleOpenConfirm: () => void}) => 
           </Button>
         </div>
       )}
-      <EditBoardModal key={currentBoard?.id} ref={editBoardModalRef} onClose={handleClose}/>
+      <EditBoardModal key={"edit" + currentBoard?.id} ref={editBoardModalRef} onClose={handleClose}/>
       <TaskModal openConfirmation={handleOpenConfirm} key={currentTask.title} ref={taskModalRef} onClose={() => taskModalRef.current?.close()} />
 
     </div>
